@@ -1,0 +1,164 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+small {
+    color: rgba(255, 0, 0, 0.849);
+}
+
+.items__block {
+    display: flex;
+    justify-content: center;
+
+    .left__block {
+        width: 33%;
+        background-color: #f1f1f1;
+        border: 1px solid;
+
+        & ul li p {
+            margin: 5px auto;
+
+            &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .middle {
+        &__block {
+            width: 33%;
+            background-color: #f1f1f1;
+            border: 1px solid;
+            border-left: 0px;
+        }
+
+        &__cars-list {
+            display: none;
+        }
+
+        &__phones-list {
+            display: none;
+        }
+
+        &__choose-item {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .right {
+        &__block {
+            width: 33%;
+            background-color: #f1f1f1;
+            border: 1px solid;
+            border-left: 0px;
+            text-align: center;
+        }
+
+        &__bmw {
+            display: none;
+            margin-top: 15px;
+        }
+
+        &__ford {
+            display: none;
+            margin-top: 15px;
+        }
+
+        &__iphone {
+            display: none;
+            margin-top: 15px;
+        }
+
+        &__nokia {
+            display: none;
+            margin-top: 15px;
+        }
+    }
+    button {
+        border: none;
+        background-color: peru;
+        color: white;
+        font-weight: bolder;
+        border-radius: 10%;
+        padding: 4px 15px;
+        margin-top: 10px;
+
+        &:hover {
+            background-color: rgb(211, 119, 28);
+        }
+    }
+}
+
+.buy_form {
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+
+    input {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid black;
+
+        &.error {
+            border: 1px solid red;
+        }
+      }
+
+    select {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid black;
+
+        &.error {
+            border: 1px solid red;
+        }
+    }
+
+    #name {
+        width: 350px;
+        text-align: center;
+
+        &::placeholder {
+            text-align: center;
+            color: rgba(0, 0, 255, 0.644);
+        }
+    }
+
+    #city {
+        width: 362px;
+        height: 27px;
+        text-align: center;
+        color: rgba(138, 138, 1, 0.993);
+    }
+
+    
+    #cash {
+        margin-left: 30px;
+        margin-bottom: 20px;
+    }
+    
+    #post {
+        width: 350px;
+        text-align: center;
+
+        &::placeholder {
+            color: rgba(236, 2, 2, 0.295);
+        }
+    }
+
+    #number {
+        width: 30px;
+        height: 20px;
+        text-align: center;
+    }
+
+    #comment {
+        width: 455px;
+        height: 81px;
+    }
+}

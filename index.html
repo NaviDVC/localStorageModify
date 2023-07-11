@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="items__block">
+        <div class="left__block">
+          <ul>
+            <li><p class="item">Cars</p></li>
+            <li><p class="item">Phones</p></li>
+          </ul>
+        </div>
+        <div class="middle__block">
+          <div class="middle__cars-list">
+            <ul>
+              <li>
+                <p class="middle__choose-item">BMW M8 Competition</p>
+              </li>
+              <li>
+                <p class="middle__choose-item">Ford Mustang Shelby GT500</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="middle__phones-list">
+            <ul>
+              <li>
+                <p class="middle__choose-item">iPhone 11 Pro Max 256GB</p>
+              </li>
+              <li>
+                <p class="middle__choose-item">Nokia 3310 0MB</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="right__block">
+          <div class="right__bmw" class="hide">
+            <p>
+              BMW M8 Competition, 2021 <br />
+              $250.000 <br />
+              <button data-buy class="buy">BUY</button>
+            </p>
+          </div>
+          <div class="right__ford">
+            <p>
+              Ford Mustang Shelby GT500, 2020
+              <br />
+              $135.000
+              <br />
+              <button data-buy class="buy">BUY</button>
+            </p>
+          </div>
+          <div class="right__iphone">
+            <p>
+              iPhone 11 Pro Max 256GB <br />
+              $1.300 <br />
+
+              <button data-buy class="buy">BUY</button>
+            </p>
+          </div>
+          <div class="right__nokia">
+            <p>
+              Nokia 3310 0MB <br />
+              $5 <br />
+              <button data-buy class="buy">BUY</button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="buy_form">
+      <form id="ordering">
+        <div class="name">
+          <p>
+            <label for="name">Введiть ваше ПIБ:</label>
+          </p><div><small></small></div>
+          <input type="text" name="name" id="name" placeholder="П.I.Б" />
+        </div>
+        <div class="city">
+          <p>
+            <label for="city">Виберiть ваше мiсто:</label>
+          </p><div><small></small></div>
+          <select name="city" id="city">
+            <option value="">Ваше мiсто</option>
+            <option value="Kiyv">Kiyv</option>
+            <option value="Lviv">Lviv</option>
+            <option value="Zaporizhzhya">Zaporizhzhya</option>
+            <option value="Odessa">Odessa</option>
+          </select>
+        </div>
+        <div class="post">
+          <p>
+            <label for="post">Введiть склад Нової пошти для надсилання: </label>
+          </p><div><small></small></div>
+          <input
+            type="text"
+            name="post"
+            id="post"
+            placeholder="Введiть номер вiддiлення Нової пошти"
+          />
+        </div>
+        <div class="payment">
+          <p><label for="payment">Оберiть спосiб оплати:</label></p>
+          <div><div class="radio-error"><small></small></div></div>
+          <input type="radio" name="payment" id="card" value="Банкiвська картка">
+          <label for="card" style="font-size: 18px; color: slateblue;">Банкiвська картка</label>
+          <input type="radio" name="payment" id="cash" value="При отриманнi">
+          <label for="cash" style="font-size: 18px; color: slateblue;">При отриманнi</label>
+        </div>
+        <div class="count">
+          <p>
+            <label for="count">
+              Введiть кiлькiсть товару, яку Ви хочете придбати:
+            </label>
+          </p>
+        <div><small></small></div>
+          <input type="number" name="number" id="number" value="1" size="10" />
+        </div>
+        <div class="comment">
+          <p>
+            <label for="comment"
+              >Якщо у вас є якiсь побажання, будь ласка, залиште їх у полi
+              нижче:</label
+            >
+          </p>
+          <textarea
+            name="comment"
+            id="comment"
+            placeholder="Коментар до замовлення..."
+            maxlength="295"
+          ></textarea>
+        </div>
+        <button type="submit" id="confirm">Confirm</button>
+      </form>
+    </div>
+
+    <script src="./main.js"></script>
+    <script src="./validate.js"></script>
+  </body>
+</html>

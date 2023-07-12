@@ -112,53 +112,53 @@ function validateName(el, message) {
 
 
 
-  form.addEventListener("submit", (event) => {
+  // form.addEventListener("submit", (event) => {
 
-    event.preventDefault();
+  //   event.preventDefault();
   
     
   
-    const isNameValid = validateName(userName, NAME_ERROR);
+  //   const isNameValid = validateName(userName, NAME_ERROR);
   
-    const isCityChecked = validateCity(city, CITY__ERROR);
+  //   const isCityChecked = validateCity(city, CITY__ERROR);
     
-    const isPostChecked = validatePost(post, POST_ERROR);
+  //   const isPostChecked = validatePost(post, POST_ERROR);
 
-    const isCountValid = validateCount(count, COUNT_ERROR);
+  //   const isCountValid = validateCount(count, COUNT_ERROR);
   
-    const isPaymentChecked = validateRadio(payment, RADIO_ERROR);
+  //   const isPaymentChecked = validateRadio(payment, RADIO_ERROR);
 
 
-    const nameValue = userName.value;
-    const cityValue = city.value;
-    const postValue = post.value;
-    const countValue = count.value;
-    const commentValue = comment.value;
-    const paymentValue = payment.value;
+  //   const nameValue = userName.value;
+  //   const cityValue = city.value;
+  //   const postValue = post.value;
+  //   const countValue = count.value;
+  //   const commentValue = comment.value;
+  //   const paymentValue = payment.value;
     
 
-    if (isNameValid && isCityChecked && isPaymentChecked && isPostChecked && isCountValid && commentValue !== ''){
-        if(confirm(`Hello, ${nameValue}!\n
-          Please, check your order information:\n
-          City: ${cityValue}!\n
-          Payment method: ${paymentValue}\n
-          Post office number: ${postValue}!\n
-          Quantity: ${countValue}!\n
-          Comment: ${commentValue}`)){
-            location.reload();
-          }
-    } else if (isNameValid && isCityChecked && isPaymentChecked && isPostChecked && isCountValid) {
+  //   if (isNameValid && isCityChecked && isPaymentChecked && isPostChecked && isCountValid && commentValue !== ''){
+  //       if(confirm(`Hello, ${nameValue}!\n
+  //         Please, check your order information:\n
+  //         City: ${cityValue}!\n
+  //         Payment method: ${paymentValue}\n
+  //         Post office number: ${postValue}!\n
+  //         Quantity: ${countValue}!\n
+  //         Comment: ${commentValue}`)){
+  //           location.reload();
+  //         }
+  //   } else if (isNameValid && isCityChecked && isPaymentChecked && isPostChecked && isCountValid) {
 
-      if (confirm(`Hello, ${nameValue}!\n
-      Please, check your order information:\n
-      You want to buy ${window.name}\n
-      City: ${cityValue}!\n
-      Payment method: ${paymentValue}\n
-      Post office number: ${postValue}!\n
-      Quantity: ${countValue}!`)) {
-        location.reload();
-      }
+  //     if (confirm(`Hello, ${nameValue}!\n
+  //     Please, check your order information:\n
+  //     You want to buy ${window.name}\n
+  //     City: ${cityValue}!\n
+  //     Payment method: ${paymentValue}\n
+  //     Post office number: ${postValue}!\n
+  //     Quantity: ${countValue}!`)) {
+  //       location.reload();
+  //     }
    
       
-  }
-  });
+  // }
+  // });

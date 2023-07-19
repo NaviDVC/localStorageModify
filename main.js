@@ -12,21 +12,21 @@ const confirmButton = document.getElementById("confirm");
 function cars() {
   carsList.style.display = "block";
   phonesList.style.display = "none";
-  console.log(buyButton);
 }
 
 function phones() {
   carsList.style.display = "none";
   phonesList.style.display = "block";
-  console.log(buyButton);
 }
+
+let stuffName = '';
 
 function bmwCar() {
   bmw.style.display = "block";
   ford.style.display = "none";
   iphone.style.display = "none";
   nokia.style.display = "none";
-  window.name = "BMW M8 Competition";
+  stuffName = "BMW M8 Competition";
 }
 
 function fordCar() {
@@ -34,7 +34,7 @@ function fordCar() {
   ford.style.display = "block";
   iphone.style.display = "none";
   nokia.style.display = "none";
-  window.name = "Ford Mustang Shelby GT500";
+  stuffName = "Ford Mustang Shelby GT500";
 }
 
 function iphoPhone() {
@@ -42,7 +42,7 @@ function iphoPhone() {
   ford.style.display = "none";
   iphone.style.display = "block";
   nokia.style.display = "none";
-  window.name = "iPhone 11 Pro Max 256GB";
+  stuffName = "iPhone 11 Pro Max 256GB";
 }
 
 function nokiaPhone() {
@@ -50,9 +50,8 @@ function nokiaPhone() {
   ford.style.display = "none";
   iphone.style.display = "none";
   nokia.style.display = "block";
-  window.name = "Nokia 3310 0MB";
+  stuffName = "Nokia 3310 0MB";
 }
-
 
 choice[0].addEventListener("click", cars);
 

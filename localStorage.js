@@ -1,84 +1,177 @@
-// const form = document.getElementById("ordering");
-// const userName = form.elements["name"];
-// const city = form.elements["city"];
-// const payment = form.elements["payment"];
-// const post = form.elements["post"];
-// const count = form.elements["number"];
-// const comment = form.elements["comment"];
+const nameValue = "";
+const cityValue = city.value;
+const postValue = post.value;
+const countValue = count.value;
+const commentValue = comment.value;
+const paymentValue = payment.value;
+const buyBtn = document.querySelector("#confirm");
+const orderBtn = document.getElementById("my-orders");
+const hiddenOrder = document.getElementById("order-hidden");
+const hiddenBtn = document.getElementById("backBtn");
 
-function newOrder(name, city, post, payment, count, comment) {
-    this.name = name;
-    this.city = city;
-    this.post = post;
-    this.payment = payment;
-    this.count = count;
-    this.comment = comment;
+function displayOrder(order) {
+  const orders = JSON.parse(localStorage.getItem("orders"));
+  const ordersList = document.getElementById("orders-list");
 
-    console.log(name, city, payment)
+  ordersList.innerHTML = "";
 
-    let orderLS = {
-        name: name,
-        city: city,
-        post: post,
-        payment: payment,
-        count: count,
-        comment: comment
-    }
+  if (orders) {
+    orders.forEach((order, index) => {
+      const delBtn = document.createElement("button");
+      delBtn.classList.add("delete-order");
+      delBtn.textContent = "Delete";
+      const listItem = document.createElement("li");
+      listItem.classList.add("order-list");
+      listItem.innerHTML = JSON.parse(
+        JSON.stringify(
+          `Order ${index + 1}: ${order.item} - City : ${
+            order.city
+          } - Post office : ${order.post}`
+        )
+      );
+      ordersList.appendChild(listItem);
+      listItem.appendChild(delBtn);
 
-    console.log(orderLS)
-
-    window.localStorage.setItem('order', JSON.stringify(orderLS));
+      const deleteOrder = document.querySelectorAll(".delete-order");
+      deleteOrder.forEach((order) => {
+        order.setAttribute("data-delete", "");
+        order.addEventListener("click", (event) => {
+          console.log(
+            (event.target.dataset.delete = +event.target.dataset.delete + 1) // !!!!! а здесь считает по 5 элеметов?
+          );
+        });
+      });
+    });
   }
 
+  const orderListElement = document.querySelectorAll(".order-list");
+  orderListElement.forEach((elem) => {
+    elem.setAttribute("data-order", "");
+    elem.addEventListener("click", (event) => {
+      console.log(
+        (event.target.dataset.order = +event.target.dataset.order + 1) // !!!!! почему здесь считает по одному
+      );
+    });
+  });
 
+  hiddenOrder.classList.remove("hidden");
+  hiddenBtn.classList.remove("hidden");
+}
+
+function addOrder(order) {
+  let orders = JSON.parse(localStorage.getItem("orders"));
+
+  if (!orders) {
+    orders = [];
+  }
+
+  orders.push(order);
+
+  localStorage.setItem("orders", JSON.stringify(orders));
+}
+
+function hideOrders() {
+  hiddenOrder.classList.add("hidden");
+  hiddenBtn.classList.add("hidden");
+}
+
+orderBtn.addEventListener("click", (e) => {
+  displayOrder();
+});
+
+hiddenBtn.addEventListener("click", (e) => {
+  hideOrders();
+});
 
 form.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-    event.preventDefault();
-  
-    
-  
-    const isNameValid = validateName(userName, NAME_ERROR);
-  
-    const isCityChecked = validateCity(city, CITY__ERROR);
-    
-    const isPostChecked = validatePost(post, POST_ERROR);
+  const isNameValid = validateName(userName, NAME_ERROR);
 
-    const isCountValid = validateCount(count, COUNT_ERROR);
-  
-    const isPaymentChecked = validateRadio(payment, RADIO_ERROR);
+  const isCityChecked = validateCity(city, CITY__ERROR);
 
+  const isPostChecked = validatePost(post, POST_ERROR);
 
-    const nameValue = userName.value;
-    const cityValue = city.value;
-    const postValue = post.value;
-    const countValue = count.value;
-    const commentValue = comment.value;
-    const paymentValue = payment.value;
-    
+  const isCountValid = validateCount(count, COUNT_ERROR);
 
-    if (isNameValid && isCityChecked && isPaymentChecked && isPostChecked && isCountValid && commentValue !== ''){
-        if(confirm(`Hello, ${nameValue}!\n
+  const isPaymentChecked = validateRadio(payment, RADIO_ERROR);
+
+  if (
+    isNameValid &&
+    isCityChecked &&
+    isPaymentChecked &&
+    isPostChecked &&
+    isCountValid &&
+    commentValue !== ""
+  ) {
+    if (
+      confirm(`Hello, ${userName.value}!\n
           Please, check your order information:\n
-          City: ${cityValue}!\n
-          Payment method: ${paymentValue}\n
-          Post office number: ${postValue}!\n
-          Quantity: ${countValue}!\n
-          Comment: ${commentValue}`)){
-            location.reload();
-          }
-    } else if (isNameValid && isCityChecked && isPaymentChecked && isPostChecked && isCountValid) {
+          You want to buy ${stuffName}\n
+          City: ${city.value}!\n
+          Payment method: ${payment.value}\n
+          Post office number: ${post.value}!\n
+          Quantity: ${count.value}!\n
+          Comment: ${comment.value}`)
+    ) {
+      let orderInfo = {
+        item: "",
+        name: "",
+        city: "",
+        post: "",
+        payment: "",
+        count: "",
+        comment: "",
+      };
 
-      if (confirm(`Hello, ${nameValue}!\n
+      orderInfo.item = stuffName;
+      orderInfo.name = userName.value;
+      orderInfo.city = city.value;
+      orderInfo.post = post.value;
+      orderInfo.payment = payment.value;
+      orderInfo.count = count.value;
+      orderInfo.comment = comment.value;
+
+      addOrder(orderInfo);
+
+      location.reload();
+    }
+  } else if (
+    isNameValid &&
+    isCityChecked &&
+    isPaymentChecked &&
+    isPostChecked &&
+    isCountValid
+  ) {
+    if (
+      confirm(`Hello, ${userName.value}!\n
       Please, check your order information:\n
-      You want to buy ${window.name}\n
-      City: ${cityValue}!\n
-      Payment method: ${paymentValue}\n
-      Post office number: ${postValue}!\n
-      Quantity: ${countValue}!`)) {
-        location.reload();
-      }
-   
-      
+      You want to buy ${stuffName}\n
+      City: ${city.value}!\n
+      Payment method: ${payment.value}\n
+      Post office number: ${post.value}!\n
+      Quantity: ${count.value}!`)
+    ) {
+      let orderInfo = {
+        item: "",
+        name: "",
+        city: "",
+        post: "",
+        payment: "",
+        count: "",
+      };
+
+      orderInfo.item = stuffName;
+      orderInfo.name = userName.value;
+      orderInfo.city = city.value;
+      orderInfo.post = post.value;
+      orderInfo.payment = payment.value;
+      orderInfo.count = count.value;
+      orderInfo.comment = comment.value;
+
+      addOrder(orderInfo);
+
+      location.reload();
+    }
   }
-  });
+});

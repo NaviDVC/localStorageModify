@@ -8,8 +8,34 @@ small {
     color: rgba(255, 0, 0, 0.849);
 }
 
+.orders {
+    #my-orders {
+        margin: 10px 0 10px 5px;
+    }
+    .hidden {
+        display: none;
+    }
+    h1 {
+        margin-left: 4px;
+    }
+    #backBtn {
+        margin-left: 4px;
+        margin-bottom: 10px;
+    }
+    .delete-order {
+        margin-bottom: 5px;
+        margin-left: 5px;
+    }
+}
+
 .items__block {
     display: flex;
+
+    &.hidden {
+        display: none;
+    }
+}
+#categories {
     justify-content: center;
 
     .left__block {
@@ -107,7 +133,7 @@ small {
         &.error {
             border: 1px solid red;
         }
-      }
+    }
 
     select {
         padding: 5px;
@@ -136,12 +162,11 @@ small {
         color: rgba(138, 138, 1, 0.993);
     }
 
-    
     #cash {
         margin-left: 30px;
         margin-bottom: 20px;
     }
-    
+
     #post {
         width: 350px;
         text-align: center;

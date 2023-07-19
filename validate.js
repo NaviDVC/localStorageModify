@@ -111,7 +111,6 @@ function validateName(el, message) {
   }
 
 
-
   // form.addEventListener("submit", (event) => {
 
   //   event.preventDefault();

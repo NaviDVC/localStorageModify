@@ -8,9 +8,21 @@
   </head>
   <body>
     <main>
-      <div class="items__block">
+      <div class="orders">
+        <button id="my-orders">My Orders</button>
+
+        <!-- ============================= -->
+        <div id="order-hidden" class="hidden">
+          <h1>My Orders</h1>
+          <ul id="orders-list"></ul>
+        </div>
+        <!-- ============================= -->
+
+        <button id="backBtn" class="hidden">Back</button>
+      </div>
+      <div class="items__block" id="categories">
         <div class="left__block">
-          <ul>
+          <ul class="ulka">
             <li><p class="item">Cars</p></li>
             <li><p class="item">Phones</p></li>
           </ul>
@@ -78,13 +90,15 @@
         <div class="name">
           <p>
             <label for="name">Введiть ваше ПIБ:</label>
-          </p><div><small></small></div>
+          </p>
+          <div><small></small></div>
           <input type="text" name="name" id="name" placeholder="П.I.Б" />
         </div>
         <div class="city">
           <p>
             <label for="city">Виберiть ваше мiсто:</label>
-          </p><div><small></small></div>
+          </p>
+          <div><small></small></div>
           <select name="city" id="city">
             <option value="">Ваше мiсто</option>
             <option value="Kiyv">Kiyv</option>
@@ -96,7 +110,8 @@
         <div class="post">
           <p>
             <label for="post">Введiть склад Нової пошти для надсилання: </label>
-          </p><div><small></small></div>
+          </p>
+          <div><small></small></div>
           <input
             type="text"
             name="post"
@@ -106,11 +121,22 @@
         </div>
         <div class="payment">
           <p><label for="payment">Оберiть спосiб оплати:</label></p>
-          <div><div class="radio-error"><small></small></div></div>
-          <input type="radio" name="payment" id="card" value="Банкiвська картка">
-          <label for="card" style="font-size: 18px; color: slateblue;">Банкiвська картка</label>
-          <input type="radio" name="payment" id="cash" value="При отриманнi">
-          <label for="cash" style="font-size: 18px; color: slateblue;">При отриманнi</label>
+          <div>
+            <div class="radio-error"><small></small></div>
+          </div>
+          <input
+            type="radio"
+            name="payment"
+            id="card"
+            value="Банкiвська картка"
+          />
+          <label for="card" style="font-size: 18px; color: slateblue"
+            >Банкiвська картка</label
+          >
+          <input type="radio" name="payment" id="cash" value="При отриманнi" />
+          <label for="cash" style="font-size: 18px; color: slateblue"
+            >При отриманнi</label
+          >
         </div>
         <div class="count">
           <p>
@@ -118,7 +144,7 @@
               Введiть кiлькiсть товару, яку Ви хочете придбати:
             </label>
           </p>
-        <div><small></small></div>
+          <div><small></small></div>
           <input type="number" name="number" id="number" value="1" size="10" />
         </div>
         <div class="comment">

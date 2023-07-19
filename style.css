@@ -8,78 +8,85 @@ small {
   color: rgba(255, 0, 0, 0.849);
 }
 
-.items__block {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.orders #my-orders {
+  margin: 10px 0 10px 5px;
+}
+.orders .hidden {
+  display: none;
+}
+.orders h1 {
+  margin-left: 4px;
+}
+.orders #backBtn {
+  margin-left: 4px;
+  margin-bottom: 10px;
+}
+.orders .delete-order {
+  margin-bottom: 5px;
+  margin-left: 5px;
 }
 
-.items__block .left__block {
+.items__block {
+  display: flex;
+}
+.items__block.hidden {
+  display: none;
+}
+
+#categories {
+  justify-content: center;
+}
+#categories .left__block {
   width: 33%;
   background-color: #f1f1f1;
   border: 1px solid;
 }
-
-.items__block .left__block ul li p {
+#categories .left__block ul li p {
   margin: 5px auto;
 }
-
-.items__block .left__block ul li p:hover {
+#categories .left__block ul li p:hover {
   text-decoration: underline;
   cursor: pointer;
 }
-
-.items__block .middle__block {
+#categories .middle__block {
   width: 33%;
   background-color: #f1f1f1;
   border: 1px solid;
   border-left: 0px;
 }
-
-.items__block .middle__cars-list {
+#categories .middle__cars-list {
   display: none;
 }
-
-.items__block .middle__phones-list {
+#categories .middle__phones-list {
   display: none;
 }
-
-.items__block .middle__choose-item:hover {
+#categories .middle__choose-item:hover {
   text-decoration: underline;
 }
-
-.items__block .right__block {
+#categories .right__block {
   width: 33%;
   background-color: #f1f1f1;
   border: 1px solid;
   border-left: 0px;
   text-align: center;
 }
-
-.items__block .right__bmw {
+#categories .right__bmw {
   display: none;
   margin-top: 15px;
 }
-
-.items__block .right__ford {
+#categories .right__ford {
   display: none;
   margin-top: 15px;
 }
-
-.items__block .right__iphone {
+#categories .right__iphone {
   display: none;
   margin-top: 15px;
 }
-
-.items__block .right__nokia {
+#categories .right__nokia {
   display: none;
   margin-top: 15px;
 }
-
-.items__block button {
+#categories button {
   border: none;
   background-color: peru;
   color: white;
@@ -88,9 +95,8 @@ small {
   padding: 4px 15px;
   margin-top: 10px;
 }
-
-.items__block button:hover {
-  background-color: #d3771c;
+#categories button:hover {
+  background-color: rgb(211, 119, 28);
 }
 
 .buy_form {
@@ -98,93 +104,60 @@ small {
   margin-top: 20px;
   display: none;
 }
-
 .buy_form input {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid black;
 }
-
 .buy_form input.error {
   border: 1px solid red;
 }
-
 .buy_form select {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid black;
 }
-
 .buy_form select.error {
   border: 1px solid red;
 }
-
 .buy_form #name {
   width: 350px;
   text-align: center;
 }
-
-.buy_form #name::-webkit-input-placeholder {
+.buy_form #name::-moz-placeholder {
   text-align: center;
   color: rgba(0, 0, 255, 0.644);
 }
-
-.buy_form #name:-ms-input-placeholder {
-  text-align: center;
-  color: rgba(0, 0, 255, 0.644);
-}
-
-.buy_form #name::-ms-input-placeholder {
-  text-align: center;
-  color: rgba(0, 0, 255, 0.644);
-}
-
 .buy_form #name::placeholder {
   text-align: center;
   color: rgba(0, 0, 255, 0.644);
 }
-
 .buy_form #city {
   width: 362px;
   height: 27px;
   text-align: center;
   color: rgba(138, 138, 1, 0.993);
 }
-
 .buy_form #cash {
   margin-left: 30px;
   margin-bottom: 20px;
 }
-
 .buy_form #post {
   width: 350px;
   text-align: center;
 }
-
-.buy_form #post::-webkit-input-placeholder {
+.buy_form #post::-moz-placeholder {
   color: rgba(236, 2, 2, 0.295);
 }
-
-.buy_form #post:-ms-input-placeholder {
-  color: rgba(236, 2, 2, 0.295);
-}
-
-.buy_form #post::-ms-input-placeholder {
-  color: rgba(236, 2, 2, 0.295);
-}
-
 .buy_form #post::placeholder {
   color: rgba(236, 2, 2, 0.295);
 }
-
 .buy_form #number {
   width: 30px;
   height: 20px;
   text-align: center;
 }
-
 .buy_form #comment {
   width: 455px;
   height: 81px;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

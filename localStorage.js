@@ -1,61 +1,61 @@
-const nameValue = "";
-const cityValue = city.value;
-const postValue = post.value;
-const countValue = count.value;
 const commentValue = comment.value;
-const paymentValue = payment.value;
-const buyBtn = document.querySelector("#confirm");
 const orderBtn = document.getElementById("my-orders");
 const hiddenOrder = document.getElementById("order-hidden");
 const hiddenBtn = document.getElementById("backBtn");
+const orders = JSON.parse(localStorage.getItem("orders"));
+const noOrders = document.getElementById('no-orders');
+noOrders.classList.add('hidden')
 
-function displayOrder(order) {
-  const orders = JSON.parse(localStorage.getItem("orders"));
+function displayOrder() {
   const ordersList = document.getElementById("orders-list");
 
   ordersList.innerHTML = "";
-
+  
   if (orders) {
     orders.forEach((order, index) => {
-      const delBtn = document.createElement("button");
-      delBtn.classList.add("delete-order");
-      delBtn.textContent = "Delete";
+      const deleteBtn = document.createElement("button");
+
+      deleteBtn.classList.add("delete-order");
+      deleteBtn.textContent = "Delete";
+
       const listItem = document.createElement("li");
+
       listItem.classList.add("order-list");
+
       listItem.innerHTML = JSON.parse(
         JSON.stringify(
-          `Order ${index + 1}: ${order.item} - City : ${
+          `Order ${index + 1}: ${order.item}. Name : ${order.name} - City : ${
             order.city
-          } - Post office : ${order.post}`
+          } - Post office : ${order.post} - Payment method : ${order.payment} - Quantity : ${order.count} - \nComment : ${order.comment}`
         )
       );
+
       ordersList.appendChild(listItem);
-      listItem.appendChild(delBtn);
-
-      const deleteOrder = document.querySelectorAll(".delete-order");
-      deleteOrder.forEach((order) => {
-        order.setAttribute("data-delete", "");
-        order.addEventListener("click", (event) => {
-          console.log(
-            (event.target.dataset.delete = +event.target.dataset.delete + 1) // !!!!! а здесь считает по 5 элеметов?
-          );
-        });
-      });
+      listItem.appendChild(deleteBtn);
     });
-  }
+  } 
 
-  const orderListElement = document.querySelectorAll(".order-list");
-  orderListElement.forEach((elem) => {
-    elem.setAttribute("data-order", "");
-    elem.addEventListener("click", (event) => {
-      console.log(
-        (event.target.dataset.order = +event.target.dataset.order + 1) // !!!!! почему здесь считает по одному
-      );
-    });
+  const deleteOrder = document.querySelectorAll(".delete-order");
+
+  deleteOrder.forEach((order, index) => {
+    order.addEventListener("click", (event) => {
+      const target = event.target;
+
+      ordersList.removeChild(target.parentNode);
+      orders.splice(index, 1);
+      localStorage.setItem("orders", JSON.stringify(orders));
+      location.reload();
+    }); 
   });
 
   hiddenOrder.classList.remove("hidden");
   hiddenBtn.classList.remove("hidden");
+
+  if (!ordersList.innerHTML == "") {
+    noOrders.classList.add('hidden');
+  } else if (ordersList.innerHTML == "") {
+    noOrders.classList.remove('hidden');
+  }
 }
 
 function addOrder(order) {
@@ -63,11 +63,12 @@ function addOrder(order) {
 
   if (!orders) {
     orders = [];
+  } else {
+    orders.push(order);
+
+    localStorage.setItem("orders", JSON.stringify(orders));
+
   }
-
-  orders.push(order);
-
-  localStorage.setItem("orders", JSON.stringify(orders));
 }
 
 function hideOrders() {
@@ -133,7 +134,6 @@ form.addEventListener("submit", (event) => {
       orderInfo.comment = comment.value;
 
       addOrder(orderInfo);
-
       location.reload();
     }
   } else if (
@@ -170,7 +170,6 @@ form.addEventListener("submit", (event) => {
       orderInfo.comment = comment.value;
 
       addOrder(orderInfo);
-
       location.reload();
     }
   }

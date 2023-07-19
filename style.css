@@ -8,6 +8,10 @@ small {
   color: rgba(255, 0, 0, 0.849);
 }
 
+pre {
+  margin: 0;
+}
+
 .orders #my-orders {
   margin: 10px 0 10px 5px;
 }
@@ -16,6 +20,18 @@ small {
 }
 .orders h1 {
   margin-left: 4px;
+}
+.orders #no-orders {
+  color: rgba(0, 0, 0, 0.575);
+  margin-left: 1rem;
+}
+.orders #orders-list {
+  margin-top: 0;
+}
+.orders .order-list {
+  max-width: 100%;
+  margin-bottom: 15px;
+  font-size: 14px;
 }
 .orders #backBtn {
   margin-left: 4px;

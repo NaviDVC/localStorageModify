@@ -8,20 +8,43 @@ small {
     color: rgba(255, 0, 0, 0.849);
 }
 
+pre {
+    margin: 0;
+}
+
 .orders {
     #my-orders {
         margin: 10px 0 10px 5px;
     }
+
     .hidden {
         display: none;
     }
+
     h1 {
         margin-left: 4px;
     }
+
+    #no-orders {
+        color: rgba(0, 0, 0, 0.575);
+        margin-left: 1rem;
+    }
+
+    #orders-list {
+        margin-top: 0;
+    }
+    
+    .order-list {
+        max-width: 100%;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+
     #backBtn {
         margin-left: 4px;
         margin-bottom: 10px;
     }
+
     .delete-order {
         margin-bottom: 5px;
         margin-left: 5px;
@@ -35,6 +58,7 @@ small {
         display: none;
     }
 }
+
 #categories {
     justify-content: center;
 
@@ -105,7 +129,9 @@ small {
             margin-top: 15px;
         }
     }
+
     button {
+        
         border: none;
         background-color: peru;
         color: white;
@@ -121,6 +147,7 @@ small {
 }
 
 .buy_form {
+
     text-align: center;
     margin-top: 20px;
     display: none;
@@ -136,16 +163,21 @@ small {
     }
 
     select {
+
         padding: 5px;
         border-radius: 5px;
         border: 1px solid black;
 
         &.error {
+
             border: 1px solid red;
+
         }
+
     }
 
     #name {
+
         width: 350px;
         text-align: center;
 
@@ -156,34 +188,47 @@ small {
     }
 
     #city {
+
         width: 362px;
         height: 27px;
         text-align: center;
         color: rgba(138, 138, 1, 0.993);
+
     }
 
     #cash {
+
         margin-left: 30px;
         margin-bottom: 20px;
+
     }
 
     #post {
+
         width: 350px;
         text-align: center;
 
         &::placeholder {
+
             color: rgba(236, 2, 2, 0.295);
+
         }
+
     }
 
     #number {
+
         width: 30px;
         height: 20px;
         text-align: center;
+        
     }
 
     #comment {
+
         width: 455px;
         height: 81px;
+
     }
+    
 }
